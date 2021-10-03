@@ -1,0 +1,32 @@
+프롬프트 뉴라인 적용
+
+명령줄이 너무 길어져 화면을 넘어가는 경우가 있으니 다음라인부터 프롬프트 하도록 설정해 줍니다.
+
+vi ~/.oh-my-zsh/themes/agnoster.zsh-theme 파일의 build_prompt()함수 안의 prompt_end 위의 prompt_newline을 추가해 줍니다.
+
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_bzr
+  prompt_hg
+  prompt_newline //이부분을 추가 꼭 순서 지켜서
+  prompt_end
+}
+build_prompt() 함수 바로 아래의 함수도 추가해 줍니다.
+
+prompt_newline() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%{%k%F{blue}%}$SEGMENT_SEPARATOR"
+  else
+    echo -n "%{%k%}"
+  fi
+
+  echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+source ~/.zshrc
