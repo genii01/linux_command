@@ -1,0 +1,16 @@
+쉘에서 아래 명령어 실행 : 레포를 oh-my-zsh 플러그인 폴더에 clone
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+~/.zshrc 파일을 열어 플러그인 로드를 위한 아래 설정 구문 추가하고 저장 및 터미널 재시작
+
+plugins=(zsh-autosuggestions)
+기본 zsh를 통한 설치
+쉘에서 아래 명령 실행 : 레포를 zsh 폴더에 clone
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+~/.zshrc 파일을 열어 플러그인 로드를 위한 아래 설정 구문 추가하고 저장 및 터미널 재시작
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+출처: https://yeonfamily.tistory.com/15 [Yeons]
